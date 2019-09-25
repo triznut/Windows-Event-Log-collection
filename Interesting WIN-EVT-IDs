@@ -9,6 +9,12 @@
 *4648: Logon using "explicit credentials". When accessing remote systems in a Windows environment, there is typically no explicit credentials being used (due to Windows access tokens and SSO). Whenever authentication is performed using "explicit credentials" (ex. explicitly providing a password), this event ID will trigger.
 *4728, 4732, 4756: A user was added to a privileged group and can be useful in later stages of the APT attack cycle, should adversaries be creating additional admin accounts (4728 - User added to Domain Admins group).
 
+AppLocker EVT-IDs
+*8007: Block exectution
+*8004: Block executable from running
+
+*4104: Powershell script blocked
+
 
 Detect lateral movement event IDs:
 *4688
@@ -30,6 +36,7 @@ Note -- Enable command line logging and Advanced Audit Policy in Windows!!
 
 References:
 --SANS SEC599 manual
+--https://github.com/nsacyber/Event-Forwarding-Guidance/blob/master/Events/RecommendedEvents.csv (NSA/CSS)
 --https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf (Full paper on a good overview for common attack techniques and tools and how to detect them).
 
 
