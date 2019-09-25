@@ -1,0 +1,38 @@
+## Windows Event IDs to log.
+
+*4688: A new process was executed
+*4624: Successful Authentication
+*5140: A network share was accessed
+*5156: Windows firewall network connection
+*7045: A new service was added to an endpoint
+*4663: File and registry auditing
+*4648: Logon using "explicit credentials". When accessing remote systems in a Windows environment, there is typically no explicit credentials being used (due to Windows access tokens and SSO). Whenever authentication is performed using "explicit credentials" (ex. explicitly providing a password), this event ID will trigger.
+*4728, 4732, 4756: A user was added to a privileged group and can be useful in later stages of the APT attack cycle, should adversaries be creating additional admin accounts (4728 - User added to Domain Admins group).
+
+
+Detect lateral movement event IDs:
+*4688
+*4689: A process has exited
+
+Example 1 -- Attacker compromises initial system and performs initial recon - 4688
+
+Example 2 -- Detect pass-the-hash (PtC) utilizing Ketshash tool - 4648, 4672 4624, 4776, 4768, 4769
+
+Example 3 -- Detect "fake" accounts being used - 4648, 4672, 4624, 4776, 4768, 4769
+
+Example 4 -- Monitor a member (user) being added to a security-enabled group and filter for "Domain Admins" group.
+
+Example 5 -- For Golden Ticket attacks and anomalies in tickets being used - 4624, 4672, 4678
+
+
+
+Note -- Enable command line logging and Advanced Audit Policy in Windows!!
+
+References:
+--SANS SEC599 manual
+--https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf (Full paper for a good overview on common attack techniques and tools and how to detect them).
+
+
+
+
+
